@@ -10,18 +10,17 @@ spec:
     requests:
       storage: 20Gi
 ---
-# provisioner 안될때 테스트용 PV
-# apiVersion: v1
-# kind: PersistentVolume
-# metadata:
-#   name: nfs-storage
-#   labels:
-#     type: nfs
-# spec:
-#   storageClassName: nfs-storageclass
-#   capacity:
-#     storage: 20Gi
-#   accessModes: ["ReadWriteMany"]
-#   nfs:
-#     server: {NFS서버 IP}
-#     path: {NFS서버 저장경로} # NFS server's shared path
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-storage
+  labels:
+    type: nfs
+spec:
+  storageClassName: nfs-storageclass
+  capacity:
+    storage: 20Gi
+  accessModes: ["ReadWriteMany"]
+  nfs:
+    server: {NFS서버 IP}
+    path: {NFS서버 저장경로} # NFS server's shared path
